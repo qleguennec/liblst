@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 10:06:26 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/03/15 10:41:44 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/03/15 11:15:37 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 typedef enum		e_lsttype
 {
-	LST,
-	DATA
+	LST_LST,
+	LST_DATA
 }					t_lsttype;
 
 typedef struct		s_lst
@@ -29,22 +29,10 @@ typedef struct		s_lst
 	struct s_lst	*next;
 }					t_lst;
 
-t_lst
-	*lst_new
-	(void *data
-	, t_lsttype type);
-size_t
-	lst_len
-	(t_lst *l);
-void
-	lst_add
-	(t_lst **l
-	, t_lst *new);
-t_lst
-	*lst_split
-	(void *p
-	, size_t n1
-	, void *match
-	, size_t n2);
+size_t				lst_len(t_lst *l);
+t_lst				*lst_new(void *data, t_lsttype type);
+t_lst				*lst_split(void *p, size_t n1, void *match, size_t n2);
+void				lst_add(t_lst **l, t_lst *new);
+void				lst_seq(t_lst *l, void (*f) (void *, void *), void *ctxt);
 
 #endif
