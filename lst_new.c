@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 10:05:49 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/03/15 10:16:02 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/03/31 14:24:25 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_lst
 	t_lst	*new;
 
 	MALLOC1(new);
-	new->data = data; 
+	new->data = data;
 	new->type = type;
 	new->next = NULL;
 	return (new);
