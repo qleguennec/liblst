@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 10:22:11 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/03/15 11:12:54 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/05/28 22:36:15 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ t_lst
 	unsigned char	*s;
 
 	l = NULL;
+	ret = NULL;
 	while ((s = ft_word(&p, &n1, match, n2)))
 	{
-		MALLOC_N(word, 1 + ((unsigned char *)p - s));
+		word = malloc(1 + ((unsigned char *)p - s));
+		if (word == NULL)
+			return (NULL);
 		if (l == NULL)
 		{
 			ret = lst_new(word, LST_DATA);

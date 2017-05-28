@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   lst_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/15 10:05:49 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/05/28 22:35:26 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/03/18 13:02:48 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/03/18 13:03:27 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblst.h"
 
-t_lst
-	*lst_new
-	(void *data
-	, t_lsttype type)
+void
+	lst_free
+	(t_lst *l)
 {
-	t_lst	*new;
+	t_lst	*next;
 
-	new = malloc(sizeof(*new));
-	if (new == NULL)
-		return (NULL);
-	new->data = data; 
-	new->type = type;
-	new->next = NULL;
-	return (new);
+	if (l)
+	{
+		free(l->data);
+		next = l->next;
+		free(l);
+		lst_free(next);
+	}
 }
