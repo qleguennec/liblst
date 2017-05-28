@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/18 13:02:48 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/03/18 13:03:27 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/03/16 11:39:05 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/05/28 22:41:30 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void
 	lst_free
-	(t_lst *l)
+	(t_lst *lst)
 {
 	t_lst	*next;
 
-	if (l)
+	if (lst)
 	{
-		free(l->data);
-		next = l->next;
-		free(l);
+		free(lst->data);
+		next = lst->next;
+		free(lst);
 		lst_free(next);
 	}
 }
